@@ -62,9 +62,7 @@ class _Product_FilterState extends State<Product_Filter> {
             Column(
                 children:
                     //[Item(n: 1,name: "SmartWatch",type: "Electronics",price: 2500),],
-                    i_no
-                        .asMap()
-                        .entries
+                    i_no.asMap().entries
                         .map((e) => Item(n: i_no[e.key], name: i_name[e.key],price: i_price[e.key],type: i_type[e.key]))
                         .toList()),
           ],
