@@ -20,6 +20,8 @@ class _Product_FilterState extends State<Product_Filter> {
     Product(no : 5, name : "SmartPhone", price : 20000, type : "Electric"),
   ];
 
+  List<Product> filter = [];
+
 
 
 
@@ -49,8 +51,17 @@ class _Product_FilterState extends State<Product_Filter> {
               activeColor: Colors.red,
               value: money,
               onChanged: (value) {
+
                 setState(() {
+
                   money = value;
+                  for(int i = 0 ; i < p.length ; i++)
+                    {
+                      if( money.toInt() >= p[i].price )
+                        {
+
+                        }
+                    }
                 });
               },
             ),
