@@ -10,16 +10,18 @@ class Product_Filter extends StatefulWidget {
 class _Product_FilterState extends State<Product_Filter> {
   double money = 50000;
 
-  List<int> i_no = [1, 2, 3, 4, 5];
-  List<String> i_name = ["T-shirt", "Jeans", "Watch", "TV", "SmartPhone"];
-  List<String> i_type = [
-    "Clothing",
-    "Clothing",
-    "Electric",
-    "Electronics",
-    "Electric"
+
+
+  List<Product> p =[
+    Product(no : 1, name : "T-shirt", price : 550, type : "Clothing"),
+    Product(no : 2, name : "Jeans", price : 1100, type : "Clothing"),
+    Product(no : 3, name : "Watch", price : 2500, type : "Electric"),
+    Product(no : 4, name : "TV", price : 45000, type : "Electronics"),
+    Product(no : 5, name : "SmartPhone", price : 20000, type : "Electric"),
   ];
-  List<int> i_price = [550, 1100, 2500, 45000, 20000];
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +61,12 @@ class _Product_FilterState extends State<Product_Filter> {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
               ),
             ),
-            Column(
-                children:
-                    //[Item(n: 1,name: "SmartWatch",type: "Electronics",price: 2500),],
-                    i_no.asMap().entries
-                        .map((e) => Item(n: i_no[e.key], name: i_name[e.key],price: i_price[e.key],type: i_type[e.key]))
-                        .toList()),
-          ],
+          ListView.builder(itemBuilder: (context, index) {
+            return Item(name: p[index].name, n: p[index].no, price: p[index].price,type: p[index].type);
+
+          },),
+        ],
+
         ),
       ),
     );
@@ -116,3 +117,27 @@ class _Product_FilterState extends State<Product_Filter> {
     );
   }
 }
+
+
+
+class Product
+{
+  int? no,price;
+  String? name,type;
+  Product({this.no,this.name,this.type,this.price});
+
+}
+
+//
+// List<String> i_no = ["1", "2", "3", "4", "5"];
+// List<String> i_name = ["T-shirt", "Jeans", "Watch", "TV", "SmartPhone"];
+// List<String> i_type = [
+//   "Clothing",
+//   "Clothing",
+//   "Electric",
+//   "Electronics",
+//   "Electric"
+// ];
+// List<String> i_price = ["550", "1100", "2500", "45000", "20000"];
+//
+// print("Product(no : \"${no[i]}\", name : \"${name[i]}\", price : \"${price[i]}\", type : \"${type[i]}\"),");
