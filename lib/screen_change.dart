@@ -51,14 +51,14 @@ class _Product_FilterState extends State<Product_Filter> {
               activeColor: Colors.red,
               value: money,
               onChanged: (value) {
-
                 setState(() {
 
                   money = value;
                   for(int i = 0 ; i < p.length ; i++)
                     {
-                      if( money.toInt() >= p[i].price )
+                      if( money.toInt() >= p[i].price)
                         {
+
 
                         }
                     }
